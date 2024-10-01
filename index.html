@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+         content="width=device-width, 
+                        initial-scale=1.0" />
+    <title>UVC Play</title>
+   
+    <style>
+        h1, h3 {
+          color: green;
+        }
+        body, header {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+    </style>
+	
+	
+	<h1>Your ID</h1> 
+	
+
+<p id="demo"></p>  
+
+    
+
+<script>
+
+  if(localStorage.getItem("pass") === null)
+
+ {
+
+
+
+
+const result = Math.random().toString(36).substring(2,7);
+console.log(result);
+
+
+var devi = result ;
+
+	var date = new Date();
+	var current_date = date.getDate()+"-"+(date.getMonth()+1)+"-"+ date.getFullYear();
+	var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+	var date_time = current_date+" "+current_time;
+
+var user = devi+" "+date_time;
+
+localStorage.setItem("pass", user);
+
+document.getElementById("demo").innerHTML = localStorage.getItem("pass");
+
+}
+else
+	{
+		var user = localStorage.getItem("pass");
+document.getElementById("demo").innerHTML = localStorage.getItem("pass");
+ }
+
+</script>
+    
+</head>
+
+<body>
+    <header>
+        <h1>UVC Play</h1>
+
+        <h3>Please Send Your Name Contact.No Address Along With This ID To Your Operator</h3>
+        <h3>Contact ph:9848347614  Whatsapp : 9848347614</h3>
+        
+        
+
+        
+
+        
+        
+        
+
+    </header>
+
+
+
+
+   
+    
+
+</body>
+
+</html>
