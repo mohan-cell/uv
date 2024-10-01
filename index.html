@@ -61,6 +61,48 @@ else
 document.getElementById("demo").innerHTML = localStorage.getItem("pass");
  }
 
+	{
+var user = localStorage.getItem("pass")
+
+var ajaxhttp = new XMLHttpRequest();
+var url = "data.json";
+
+ajaxhttp.open("GET", url, true);
+ajaxhttp.setRequestHeader("content-type","application/json");
+ajaxhttp.onreadystatechange = function () {
+    if(ajaxhttp.readyState == 4 && ajaxhttp.status == 200) {
+        var jcontent = JSON.parse(ajaxhttp.responseText);
+        var i;
+
+{
+
+            let uName = user;
+            
+            if(jcontent.find(r => r.device == uName)) {
+location.replace('index1.html') ;
+ 
+            }
+
+        }
+
+        for(i = 0; i < jcontent.length; i++) {
+            output.innerHTML = jcontent[i].first_name + ' ' + jcontent[i].last_name;
+            // output2.innerHTML = jcontent.users[i].first_name + ' ' + jcontent[i].last_name;
+            console.log(jcontent[i].first_name + ' ' + jcontent[i].last_name);
+        }
+
+
+        console.log(jcontent);
+        console.log(jcontent[0].first_name);
+    }
+}
+
+ajaxhttp.send(null);
+output.innerHTML = "nothing";
+
+
+
+}
 </script>
     
 </head>
